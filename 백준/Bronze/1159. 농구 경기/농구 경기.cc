@@ -1,32 +1,23 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-string name;
-int n;
-bool flag = false;
-map<char,int> m;
-
+int n, cnt[26];
+string s,result;
 int main()
 {
-    
     cin >> n;
-    for(int i=0; i<n; i++) {
-        cin >> name;
-        m[name[0]] += 1;
-        if (m[name[0]] >=5) {
-            flag = true;
+    for(int i=0;i<n;i++) {
+        cin >> s;
+        cnt[s[0] - 'a']++;
+    }
+    for(int i=0;i<26;i++) {
+        if (cnt[i]>=5) {
+            result += char(i+'a');
         }
     }
-    if (flag) {
-        for (auto& pair : m) {
-            if(pair.second >= 5) {
-                cout << pair.first;
-            }
-        }
-    }
-    else {
-        cout << "PREDAJA";
+    if (!result.size()) {
+        result = "PREDAJA";
     }
 
-    return 0;
+    cout << result;
 }
