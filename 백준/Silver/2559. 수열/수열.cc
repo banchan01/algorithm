@@ -6,6 +6,8 @@ int arr[100005];
 int result = -10000005;
 int main()
 {
+    ios_base::sync_with_stdio(false);
+	cin.tie(NULL);cout.tie(NULL);
     cin >> n >> k;
     for(int i=0; i<n; i++) {
         cin >> tmp;
