@@ -6,7 +6,8 @@ map<int, string> dogam;
 map<string, int> dogamgam;
 int main() {
     ios_base::sync_with_stdio(false);
-	cin.tie(NULL); cout.tie(NULL);
+    cin.tie(NULL); cout.tie(NULL);
+
     cin >> n >> m;
     for(int i=0;i<n;i++) {
         string pokemon;
@@ -18,11 +19,10 @@ int main() {
     for(int i=0;i<m;i++) {
         string quiz;
         cin >> quiz;
-        try {
-            int idx = stoi(quiz);
+        if (atoi(quiz.c_str())) {
+            int idx = atoi(quiz.c_str());
             cout << dogam[idx] << '\n';
-        } catch (const invalid_argument& e) {
-            cout << dogamgam[quiz] << '\n';
         }
+        else cout << dogamgam[quiz] << '\n';
     }
 }
