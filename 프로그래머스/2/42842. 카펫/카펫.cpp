@@ -4,6 +4,9 @@
 
 using namespace std;
 
+bool cmp(int& a, int& b) {
+    return a>b;
+}
 vector<int> solution(int brown, int yellow) {
     vector<int> answer;
     for(int i=1; i<=yellow; i++) {
@@ -18,7 +21,7 @@ vector<int> solution(int brown, int yellow) {
             }
         }
     }
-    sort(answer.begin(), answer.end(), greater<int>());
+    sort(answer.begin(), answer.end(), cmp);
     
     return answer;
 }
