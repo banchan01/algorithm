@@ -1,46 +1,28 @@
-#include <iostream>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
 
-int main()
-{
-    bool flag = false;
-    int height[9];
-    int left_height=0;
-    for(int i = 0; i<9; i++)
-    {
-        cin >> height[i];
-        left_height += height[i];
-    }
-    left_height -= 100;
+int arr[9];
+int main() {
+    // 입력
 
-    for(int i=0; i<9;i++)
-    {
-        for(int j=i+1; j<9; j++)
-        {
-            int a = left_height;
-            a -= height[i];
-            a -= height[j];
-            if (a==0)
-            {
-                height[i] =0;
-                height[j] =0;
-                flag = true;
-                break;
-            }
+    for(int i=0; i<9; i++) {
+        cin >> arr[i];
+    }
+    sort(arr, arr+9);
+
+    do {
+        int sum =0;
+        for(int i=0;i<7; i++) {
+            sum += arr[i];
         }
-        if (flag == true) break;
-    }
-
-    sort(height,height+9);
-
-    for(int i=0; i<9;i++)
-    {
-        if (height[i] != 0)
-        {
-            cout << height[i] << '\n';
+        if(sum==100){
+            break;
         }
+    } while(next_permutation(arr,arr+9));
+
+    for(int i=0; i<7; i++) {
+        cout << arr[i] << '\n';
     }
+
     return 0;
-
 }
