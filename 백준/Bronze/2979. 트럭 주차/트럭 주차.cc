@@ -1,40 +1,31 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
-int arr[105];
+int cnt[105];
 
-int main()
-{
-    int result =0;
+int main() {
     int a,b,c;
     cin >> a >> b >> c;
-    for(int i=0; i<3;i++)
-    {
-        int in, out;
-        cin >> in >> out;
-
-        for(int j=in; j<out; j++)
-        {
-            arr[j] += 1;
+    for(int i=0; i<3; i++) {
+        int s,e;
+        cin >> s >> e;
+        for(int j=s; j<e;j++) {
+            cnt[j] += 1;
         }
     }
-
-    for(int i=0; i<105;i++)
-    {
-        if (arr[i] == 1)
-        {
-            result += a;
+    int ret=0;
+    for(int i=0; i<104; i++) {
+        if(cnt[i]==1) {
+            ret += a;
         }
-        else if (arr[i]==2)
-        {
-            result += 2*b;
+        else if(cnt[i]==2) {
+            ret += (2*b);
         }
-        else if (arr[i]==3)
-        {
-            result += 3*c;
+        else if(cnt[i]==3) {
+            ret += (3*c);
         }
+        else continue;
     }
-    cout << result;
-
+    cout << ret;
     return 0;
 }
