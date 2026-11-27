@@ -1,28 +1,21 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int n,m;
-map<int, string> dogam;
-map<string, int> dogamgam;
 int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL); cout.tie(NULL);
-
+    ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
+    int n,m;
     cin >> n >> m;
-    for(int i=0;i<n;i++) {
-        string pokemon;
-        cin >> pokemon;
-        dogam[i+1] = pokemon;
-        dogamgam[pokemon] = i+1;
+    map<string, string> name;
+    map<string, string> number;
+    for(int i=1; i<=n; i++) {
+        string s; cin >> s;
+        name[s] = to_string(i);
+        number[to_string(i)] = s;
     }
-
-    for(int i=0;i<m;i++) {
-        string quiz;
-        cin >> quiz;
-        if (atoi(quiz.c_str())) {
-            int idx = atoi(quiz.c_str());
-            cout << dogam[idx] << '\n';
-        }
-        else cout << dogamgam[quiz] << '\n';
+    for(int j=0; j<m; j++) {
+        string q; cin >> q;
+        if(name.count(q)) cout << name[q] << '\n';
+        else if(number.count(q)) cout << number[q] << '\n';
     }
+    return 0;
 }
