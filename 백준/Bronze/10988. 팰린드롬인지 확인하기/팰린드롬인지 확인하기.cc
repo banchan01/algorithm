@@ -1,20 +1,25 @@
-#include <iostream>
-#include <string>
+#include <bits/stdc++.h>
 using namespace std;
 
-int main()
-{
-    int result = 1;
-    string a;
-    cin >> a;
+int same(string s1, string s2) {
+    reverse(s1.begin(), s1.end());
+    if(s1==s2) {
+        return 1;
+    } else return 0;
+}
 
-    for(int i=0; i<a.length()/2; i++)
-    {
-        if (a[i] != a[a.length()-1-i])
-        {
-            result = 0;
-        }
+int main() {
+    string s;
+    cin >> s;
+    int idx = s.size()/2;
+    if(s.size()%2==0) {
+        string s1 = s.substr(0,idx);
+        string s2 = s.substr(idx,s.size());
+        cout << same(s1,s2);
+    } else {
+        string s1 = s.substr(0,idx);
+        string s2 = s.substr(idx+1, s.size());
+        cout << same(s1,s2);
     }
-    cout << result;
     return 0;
 }
