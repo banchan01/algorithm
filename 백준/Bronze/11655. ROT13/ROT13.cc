@@ -1,23 +1,26 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-string s;
-string result;
+
 int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
-    getline(cin,s);
-    for (char ch : s) {
-        if (65<=ch && ch<=90) {
-            if(int(ch)+13 > 90) result += 65 + ((int(ch)+13)-90)-1;
-            else result += int(ch) + 13;
+    string s;
+    getline(cin, s);
+    for(char c : s) {
+        if(c>=65 && c<=90) {
+            int a = c+13;
+            if(a>90) {
+                a-=26;
+            }
+            cout << char(a);
+        } else if(c>=97 && c<=122) {
+            int b = c+13;
+            if(b>122) {
+                b-=26;
+            }
+            cout << char(b);
+        } else {
+            cout << c;
         }
-        else if (97<=ch && ch<=122) {
-            if(int(ch)+13 > 122) result += 97 + ((int(ch)+13)-122)-1;
-            else result += int(ch) + 13;
-        }
-        else result += ch;
     }
-    cout << result;
+    return 0;
 }
